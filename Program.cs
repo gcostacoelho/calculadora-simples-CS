@@ -1,4 +1,4 @@
-﻿Console.WriteLine("#### CALCULADORA ####\n");
+﻿Console.WriteLine("#### CALCULADORA SIMPLES ####\n");
 
 static void Menu(){
     Console.WriteLine("Operações que podem ser feitas:");
@@ -35,34 +35,39 @@ static float recebeNumero(){
     return numF;
 }
 
+do{
+    Menu();
+    int oper;
 
+    do{ oper = recebeOperac(); } while(oper < 0 || oper > 4);
 
+    float n1 = recebeNumero();
+    float n2 = recebeNumero();
 
-Menu();
-int oper;
+    switch (oper){
+        case 1: 
+            float soma = n1 + n2;
+            Console.WriteLine("O resultado da sua soma é: " + soma);
+            break;
+        case 2:
+            float sub = n1 - n2;
+            Console.WriteLine("O resultado da sua subtração é: " + sub);
+            break;
+        case 3:
+            float mult = n1 * n2;
+            Console.WriteLine("O resultado da sua multiplicação é: " + mult);
+            break;
+        case 4:
+            float div = n1 / n2;
+            Console.WriteLine("O resultado da sua divisão é: " + div);
+            break;
+    }
 
-do{ oper = recebeOperac(); } while(oper < 0 || oper > 4);
+    Console.Write("Deseja fazer mais operações simples:\n1-Sim\n2-Não\n");
+    string ?cont = Console.ReadLine();
+    if(cont != "1") break;
+    else Console.WriteLine("Ok, vamos continuar então...");
+}while(true);
 
-float n1 = recebeNumero();
-float n2 = recebeNumero();
-
-switch (oper){
-    case 1: 
-        float soma = n1 + n2;
-        Console.WriteLine("O resultado da sua soma é: " + soma);
-        break;
-    case 2:
-        float sub = n1 - n2;
-        Console.WriteLine("O resultado da sua subtração é: " + sub);
-        break;
-    case 3:
-        float mult = n1 * n2;
-        Console.WriteLine("O resultado da sua multiplicação é: " + mult);
-        break;
-    case 4:
-        float div = n1 / n2;
-        Console.WriteLine("O resultado da sua divisão é: " + div);
-        break;
-}
 
 Console.ReadLine();
